@@ -22,7 +22,7 @@ impl Article {
     }
 
     pub fn content(&self) -> Option<&str> {
-        None
+        self.state.content(self)
     }
 
     pub fn send_to_moderators(&mut self) {

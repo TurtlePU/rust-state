@@ -1,4 +1,5 @@
 use super::state::{State, Transit};
+use crate::article::Article;
 
 pub struct Draft;
 
@@ -19,5 +20,7 @@ impl State for PendingReview {
 pub struct Published;
 
 impl State for Published {
-    // nothing
+    fn content<'a>(&self, article: &'a Article) -> Option<&'a str> {
+        Some(&article.content)
+    }
 }

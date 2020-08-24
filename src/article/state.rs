@@ -8,6 +8,10 @@ pub trait State {
     fn publish(&mut self) -> Transit {
         Transit(None)
     }
+
+    fn content<'a>(&self, _article: &'a Article) -> Option<&'a str> {
+        None
+    }
 }
 
 pub struct Transit(pub Option<Box<dyn State>>);
