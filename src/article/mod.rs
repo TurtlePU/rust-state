@@ -17,8 +17,8 @@ impl Article {
         }
     }
 
-    pub fn add_text(&self, _text: &str) {
-        // no-op
+    pub fn add_text(&mut self, text: &str) {
+        self.content.push_str(text);
     }
 
     pub fn content(&self) -> Option<&str> {
