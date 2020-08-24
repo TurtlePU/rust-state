@@ -1,8 +1,20 @@
-pub struct Article;
+use state::State;
+use states::Draft;
+
+mod state;
+mod states;
+
+pub struct Article {
+    state: Box<dyn State>,
+    content: String,
+}
 
 impl Article {
     pub fn empty() -> Self {
-        Self
+        Self {
+            state: Box::new(Draft),
+            content: String::new(),
+        }
     }
 
     pub fn add_text(&self, _text: &str) {
