@@ -25,8 +25,8 @@ impl Article {
         None
     }
 
-    pub fn send_to_moderators(&self) {
-        // no-op
+    pub fn send_to_moderators(&mut self) {
+        self.state.send_to_moderators().apply(self);
     }
 
     pub fn publish(&self) {
