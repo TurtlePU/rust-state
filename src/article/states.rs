@@ -11,5 +11,13 @@ impl State for Draft {
 pub struct PendingReview;
 
 impl State for PendingReview {
+    fn publish(&mut self) -> Transit {
+        Transit::to(Published)
+    }
+}
+
+pub struct Published;
+
+impl State for Published {
     // nothing
 }

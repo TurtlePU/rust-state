@@ -29,7 +29,7 @@ impl Article {
         self.state.send_to_moderators().apply(self);
     }
 
-    pub fn publish(&self) {
-        // no-op
+    pub fn publish(&mut self) {
+        self.state.publish().apply(self);
     }
 }

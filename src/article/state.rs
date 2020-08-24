@@ -4,6 +4,10 @@ pub trait State {
     fn send_to_moderators(&mut self) -> Transit {
         Transit(None)
     }
+
+    fn publish(&mut self) -> Transit {
+        Transit(None)
+    }
 }
 
 pub struct Transit(pub Option<Box<dyn State>>);
